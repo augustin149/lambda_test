@@ -1,17 +1,13 @@
-{
-  "AWSTemplateFormatVersion" : "2010-09-09",
-  "Description" : "AWS CloudFormation template which creates an S3 bucket",
-  "Resources" : {
-    "MyAugustinSampleBucket" : {
-      "Type" : "AWS::S3::Bucket",
-      "Properties" : {
-      }
-    }
-  },
-  "Outputs" : {
-    "BucketName" : {
-      "Value" : { "Ref" : "MyAugustinSampleBucket" },
-      "Description" : "The name of the S3 bucket"
-    }
-  } 
-}
+AWSTemplateFormatVersion: "2010-09-09"
+Description: A sample template
+Resources:
+  SecurityGroup:
+  Type: "AWS::EC2::SecurityGroup"
+  Properties:
+    GroupDescription: "Open up port 22 to the world"
+    VpcId: "vpc-xxx"
+    SecurityGroupIngress:
+      - IpProtocol: "tcp"
+        FromPort: 22
+        ToPort: 22
+        CidrIp: "0.0.0.0/0"
